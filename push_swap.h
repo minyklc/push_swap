@@ -39,4 +39,14 @@ void	ft_cleaner(s_stack *array_a, char **args);
 void	print_result_utils(s_stack *array);
 
 
+// --- operations_utils.c ---
+void sa(s_stack **head);
+void sb(s_stack **head);
+void ss(s_stack **head_a, s_stack **head_b);
+
+// --- stack_utils.c ---
+s_stack *stack_new(int nb);
+s_stack *stack_last(s_stack *stack);
+s_stack stack_add_back(s_stack **stack, s_stack *new);
+
 #endif
