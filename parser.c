@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:01:32 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/24 14:04:31 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/25 00:38:22 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,62 @@
 //#include "libft/libft.h"
 #include "push_swap.h"
 
-void	ft_parser_error(char *str)
+void	free_args(char **args)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
+	ft_printf("Error\n");
+}
+
+void	free_str(char *str)
 {
 	free(str);
 	ft_printf("Error\n");
 }
 
-int	check_str(char *str)
+int	check_limits(char *str)
+{
+	if ((ft_strlen(str) > 11) || (ft_strlen(str) > 10 && str[0] != '-'))
+		return (1);
+	if (ft_strlen(str) == 11 && str[0] == '-' 
+		&& ft_strncmp("-2147483648", str, 12) < 0)
+		return (2);
+	else if (ft_strlen(str) == 10 
+		&& ft_strncmp("2147483647", str, 11) < 0)
+		return (3);
+	return (0);
+}
+
+int	check_args(char **args)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	if (ft_isdigit(str[i]) != 0 && ft_isdigit(str[i + 1]) == 0)
+	j = 0;
+	if (!args[1])
+		return (1);
+	while (args[i])
+	{
+		if (!args[j])
+		{
+			if (check_limits(args[i]) != 0)
+				return (2);
+			j = 0;
+			i++;
+		}
+		if (args[i] && ft_strncmp(args[j], args[i], 11) == 0 && i != j)
+			return (1);
+		j++;
+	}
+	return (0);
 }
 
 int	check_nb(char *str)
@@ -67,12 +111,13 @@ char	**ft_parser(char **argv)
 		else
 			{
 				if (i != 1)
-					ft_parser_error(str);
+					free_str(str);
 				return (NULL);
 			}
 	}
-	check_str(str);
 	args = ft_split(str, ' ');
 	free(str);
+	if (check_args(args) != 0)
+		return (free_args(args), NULL);
 	return (args);
 }

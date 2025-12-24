@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:00:12 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/23 22:28:51 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/24 17:49:41 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	print_result_utils(s_stack *array)
 	while (array)
 	{
 		ft_printf("nb : [%d] ", array->nb);
-		ft_printf("pos : [%d]\n", array->pos);
 		array = array->next;
 	}
 }

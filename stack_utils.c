@@ -23,7 +23,7 @@ s_stack *stack_last(s_stack *stack)
   return (stack);
 }
 
-s_stack stack_add_back(s_stack **stack, s_stack *new)
+void stack_add_back(s_stack **stack, s_stack *new)
 {
   if (*stack)
     stack_last(*stack)->next = new;

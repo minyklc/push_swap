@@ -23,8 +23,8 @@ void ss(s_stack **head_a, s_stack **head_b)
   sb(head_b);
 }
 
-/*
-int main(void)
+
+/*int main(void)
 {
   int nb_0 = 1;
   int nb_1 = 2;
@@ -42,17 +42,16 @@ int main(void)
   //sb(&stack_b);
   ss(&stack_a, &stack_b);
 
-  while(stack_a != NULL)
+  while (stack_a != NULL)
   {
     printf("Nb: %i\n", stack_a->nb);
     stack_a = stack_a->next;
   }
-  while(stack_b != NULL)
+  while (stack_b != NULL)
   {
     printf("Nb: %i\n", stack_b->nb);
     stack_b = stack_b->next;
   }
   free(stack_a);
   free(stack_b);
-}
-*/
+}*/

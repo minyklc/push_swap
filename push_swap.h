@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 23:12:10 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/24 17:46:56 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/25 00:31:15 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct st_stack {
 	struct st_stack *next;
 } s_stack;
 
-s_stack	*create_node(int nb, int pos);
+s_stack	*create_node(int nb);
 s_stack	*ft_parser2(char **args);
 char	**ft_split(char const *s, char c);
 char	**ft_parser(char **argv);
@@ -31,9 +31,13 @@ char	*ft_joinstr(char *s1, char *s2);
 int	ft_isdigit(int c);
 int	ft_strlen(const char *str);
 int	check_nb(char *str);
-void	pushback(s_stack **head, int nb, int pos);
-void	ft_parser_error(char *str);
-//fonction temporaire à effacer
+int	check_args(char **args);
+int	check_limits(char *str);
+void	pushback(s_stack **head, int nb);
+void	free_str(char *str);
+void	free_args(char **args);
+
+// --- fonction temporaire à effacer ---
 void	ft_cleaner(s_stack *array_a, char **args);
 void	print_result_utils(s_stack *array);
 
@@ -46,6 +50,6 @@ void ss(s_stack **head_a, s_stack **head_b);
 // --- stack_utils.c ---
 s_stack *stack_new(int nb);
 s_stack *stack_last(s_stack *stack);
-s_stack stack_add_back(s_stack **stack, s_stack *new);
+void stack_add_back(s_stack **stack, s_stack *new);
 
 #endif
