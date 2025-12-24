@@ -6,17 +6,17 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 13:00:54 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/22 20:40:30 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/23 18:33:37 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-stack	create_node(int nb, int pos)
+s_stack	*create_node(int nb, int pos)
 {
-	stack	*array;
+	s_stack	*array;
 
-	array = malloc(sizeof(stack));
+	array = malloc(sizeof(s_stack));
 	if (!array)
 		return (NULL);
 	array->nb = nb;
@@ -25,23 +25,26 @@ stack	create_node(int nb, int pos)
 	return (array);
 }
 
-void	pushback(stack **head, int nb, int pos)
+void	pushback(s_stack **head, int nb, int pos)
 {
-	stack	*newnode;
+	s_stack	*newnode;
+	s_stack	*current;
 	
-	newnode = create_node(nb, pos)
+	newnode = create_node(nb, pos);
 	if (!(*head))
 	{
-		head = 
+		*head = newnode;
+		return ;
 	}
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	current = *head;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = newnode;
 }
 
-stack	ft_parser2(char **args)
+s_stack	*ft_parser2(char **args)
 {
-	stack	*arrayA = NULL;
+	s_stack	*arrayA = NULL;
 	int	i;
 
 	i = 0;
@@ -50,36 +53,5 @@ stack	ft_parser2(char **args)
 		pushback(&arrayA, ft_atoi(args[i]), i);
 		i++;
 	}
-	return (&arrayA);
+	return (arrayA);
 }
-
-
-1 2 3 "2 3 4"
-
-
-// int	check_nb_args(char *str)
-// {
-// 	int	i;
-// 	int	count;
-
-// 	i = 0;
-// 	count = 0;
-// 	while (str[i])
-// 	{
-// 		while (str[i] == ' ')
-// 			i++;
-// 		if (str[i] && (ft_isdigit(str[i]) || str[i] == '-' || str[i] == '+'))
-// 			count++;
-// 		while (str[i] && str[i] != ' ')
-// 			i++;
-// 	}
-// 	return (count);
-// }
-
-// char	**ft_parser2(char **argv)
-// {
-// 	char	**args;
-	
-// 	args = malloc(sizeof(*char) * )
-// 	return (args);
-// }

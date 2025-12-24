@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_utils.c                                         :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:00:12 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/22 13:45:16 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/23 22:28:51 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// int	ft_strlen(const char *str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 		i++;
-// 	return (i);
-// }
 
 char	*ft_joinstr(char *s1, char *s2)
 {
@@ -43,4 +33,13 @@ char	*ft_joinstr(char *s1, char *s2)
 	string[++j] = ' ';
 	string[++j] = '\0';
 	return (string);
+}
+void	print_result_utils(s_stack *array)
+{
+	while (array)
+	{
+		ft_printf("nb : [%d] ", array->nb);
+		ft_printf("pos : [%d]\n", array->pos);
+		array = array->next;
+	}
 }

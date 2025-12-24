@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 22:58:23 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/22 19:57:36 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/24 12:25:46 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,32 @@
 
 int	main(int argc, char *argv[])
 {
+	char	**args;
+	s_stack	*array_a;
+
+	if (argc > 1)
+	{
+		args = ft_parser(argv);
+		if (!args)
+			return (1);
+		array_a = ft_parser2(args);
+		print_result_utils(array_a);
+		ft_cleaner(array_a, args);
+	}
+	else
+	{
+		ft_printf("Error\n");
+		return (1);
+	}
+	return (0);
+}
+
+/*int	main(int argc, char *argv[])
+{
 	int	i;
 	char	*str = ft_parser(argv);
 	char	**args;
+	s_stack	*arrayA;
 
 	i = 1;
 //print agrv[i]
@@ -44,13 +67,21 @@ int	main(int argc, char *argv[])
 //print args
 	while (args[i])
 	{
-		printf("tab1 : [%s], ", args[i]);
+		printf("tab : [%s], ", args[i]);
 		//free(args[i]);
 		i++;
 	}
-//create liste chainée
 	printf("\n");
-	
+//create liste chainée
+	arrayA = ft_parser2(args);
+	i = 0;
+	while (arrayA)
+	{
+		printf("array : [%d], ", arrayA->nb);
+		arrayA = arrayA->next;
+		free(args[i]);
+		i++;
+	}
 	free(args);
 	return (0);
-}
+}*/

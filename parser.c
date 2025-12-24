@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:01:32 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/22 13:14:39 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/24 14:04:31 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 // #include <stdlib.h>
 //#include "libft/libft.h"
 #include "push_swap.h"
+
+void	ft_parser_error(char *str)
+{
+	free(str);
+	ft_printf("Error\n");
+}
+
+int	check_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (ft_isdigit(str[i]) != 0 && ft_isdigit(str[i + 1]) == 0)
+}
 
 int	check_nb(char *str)
 {
@@ -38,27 +52,27 @@ int	check_nb(char *str)
 	return (0);
 }
 
-char	*ft_parser(char **argv)
+char	**ft_parser(char **argv)
 {
 	int		i;
 	char	*str;
+	char	**args;
 
 	str = "";
-	i = 1;
-	while (argv[i])
+	i = 0;
+	while (argv[++i])
 	{
 		if (check_nb(argv[i]) == 0)
 			str = ft_joinstr(str, argv[i]);
 		else
 			{
 				if (i != 1)
-				{
-					free(str);
-					str = NULL;
-				}
-				return (str);
+					ft_parser_error(str);
+				return (NULL);
 			}
-		i++;
 	}
-	return (str);
+	check_str(str);
+	args = ft_split(str, ' ');
+	free(str);
+	return (args);
 }
