@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 23:12:10 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/24 15:28:09 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/24 17:46:56 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 typedef struct st_stack {
 	int	nb;
-	int	pos;
 	struct st_stack *next;
 } s_stack;
 
