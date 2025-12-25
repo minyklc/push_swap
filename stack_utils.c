@@ -30,4 +30,3 @@ void stack_add_back(s_stack **stack, s_stack *new)
   else
     *stack = new;
 }
-
