@@ -23,7 +23,6 @@ void ss(s_stack **head_a, s_stack **head_b)
   sb(head_b);
 }
 
-
 /*int main(void)
 {
   int nb_0 = 1;
