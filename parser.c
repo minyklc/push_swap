@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:01:32 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/25 00:38:22 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/25 01:43:44 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,20 @@
 //#include "libft/libft.h"
 #include "push_swap.h"
 
-void	free_args(char **args)
+int	check_limits(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (args[i])
-	{
-		free(args[i]);
+	while (str[i] == '0' || str[i] == '-' || str[i] == '+')
 		i++;
-	}
-	free(args);
-	ft_printf("Error\n");
-}
-
-void	free_str(char *str)
-{
-	free(str);
-	ft_printf("Error\n");
-}
-
-int	check_limits(char *str)
-{
-	if ((ft_strlen(str) > 11) || (ft_strlen(str) > 10 && str[0] != '-'))
+	if ((ft_strlen(str + i) > 11) || (ft_strlen(str + i) > 10 && str[0] != '-'))
 		return (1);
-	if (ft_strlen(str) == 11 && str[0] == '-' 
-		&& ft_strncmp("-2147483648", str, 12) < 0)
+	if (ft_strlen(str + i) == 10 && str[0] == '-' 
+		&& ft_strncmp("2147483648", str + i, 11) < 0)
 		return (2);
-	else if (ft_strlen(str) == 10 
-		&& ft_strncmp("2147483647", str, 11) < 0)
+	else if (ft_strlen(str + i) == 10 && str[0] != '-'
+		&& ft_strncmp("2147483647", str + i, 11) < 0)
 		return (3);
 	return (0);
 }
