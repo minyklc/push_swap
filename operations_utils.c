@@ -23,7 +23,43 @@ void ss(s_stack **head_a, s_stack **head_b)
   sb(head_b);
 }
 
-/*int main(void)
+void pa(s_stack **head_a, s_stack **head_b)
+{
+  if ((*head_b)->next == NULL)
+    return;
+  (*head_a)->nb = (*head_b)->nb;
+}
+
+void pb(s_stack **head_a, s_stack **head_b)
+{
+  pa(head_b, head_a);
+}
+
+// Les rotates ne font pas la bonne chose
+
+void ra(s_stack **head)
+{
+  int temp;
+
+  
+  temp = stack_last(*head)->nb;
+  stack_last(*head)->nb = (*head)->nb;
+  (*head)->nb = temp; 
+}
+
+void rb(s_stack **head)
+{
+  ra(head);
+}
+
+void rr(s_stack **head_a, s_stack **head_b)
+{
+  ra(head_a);
+  rb(head_b);
+}
+
+/*
+int main(void)
 {
   int nb_0 = 1;
   int nb_1 = 2;
@@ -37,20 +73,27 @@ void ss(s_stack **head_a, s_stack **head_b)
 
   stack_add_back(&stack_a, next_a);
   stack_add_back(&stack_b, next_b);
+
   //sa(&stack_a);
   //sb(&stack_b);
-  ss(&stack_a, &stack_b);
+  //ss(&stack_a, &stack_b);
+  //pa(&stack_a, &stack_b);
+  //pb(&stack_a, &stack_b);
+  //ra(&stack_a);
+  //rb(&stack_b);
+  rr(&stack_a, &stack_b);
 
-  while (stack_a != NULL)
+  while(stack_a != NULL)
   {
     printf("Nb: %i\n", stack_a->nb);
     stack_a = stack_a->next;
   }
-  while (stack_b != NULL)
+  while(stack_b != NULL)
   {
     printf("Nb: %i\n", stack_b->nb);
     stack_b = stack_b->next;
   }
   free(stack_a);
   free(stack_b);
-}*/
+}
+*/
