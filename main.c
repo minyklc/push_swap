@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 22:58:23 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/24 18:19:39 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/30 20:40:16 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,73 +15,63 @@
 int	main(int argc, char *argv[])
 {
 	char	**args;
-	s_stack	*array_a;
+	t_stack	*array_a;
 
 	if (argc > 1)
 	{
-		args = ft_parser(argv);
+		args = ft_parsing(argv);
 		if (!args)
 			return (1);
-		array_a = ft_parser2(args);
+		array_a = split_to_stack(args);
+		// print_result_utils(array_a);
+		if (is_it_sorted(array_a) == 0)
+			printf("..and it is sorted\n"); 
+		ft_trindex(&array_a);
 		print_result_utils(array_a);
 		ft_cleaner(array_a, args);
-	}
-	else
-	{
-		ft_printf("Error\n");
-		return (1);
 	}
 	return (0);
 }
 
-/*int	main(int argc, char *argv[])
-{
-	int	i;
-	char	*str = ft_parser(argv);
-	char	**args;
-	s_stack	*arrayA;
+/* --- Main for operation functions --- */
 
-	i = 1;
-//print agrv[i]
-	if (argc >= 2)
-	{
-		while (argv[i])
-		{
-			printf("arg%d : [%s], ", i, argv[i]);
-			i++;
-		}
-		printf("\n");
-		if (str == NULL)
-		{
-			printf("input non valid\n");
-			return (1);
-		}
-//print str
-		else
-			printf("str : [%s]", str);
-	}
-	printf("\n");
-	args = ft_split(str, ' ');
-	free(str);
-	i = 0;
-//print args
-	while (args[i])
-	{
-		printf("tab : [%s], ", args[i]);
-		//free(args[i]);
-		i++;
-	}
-	printf("\n");
-//create liste chainée
-	arrayA = ft_parser2(args);
-	i = 0;
-	while (arrayA)
-	{
-		printf("array : [%d], ", arrayA->nb);
-		arrayA = arrayA->next;
-		free(args[i]);
-		i++;
-	}
-	free(args);
-	return (0);
-}*/
+/*
+int main(void)
+{
+  int nb_0 = 1;
+  int nb_1 = 2;
+  int nb_2 = 3;
+  int nb_3 = 4;
+
+  t_stack *stack_a = stack_new(nb_0);
+  t_stack *next_a = stack_new(nb_1);
+  t_stack *stack_b = stack_new(nb_2);
+  t_stack *next_b = stack_new(nb_3);
+
+  stack_add_back(&stack_a, next_a);
+  stack_add_back(&stack_b, next_b);
+
+  //sa(&stack_a);
+  //sb(&stack_b);
+  //ss(&stack_a, &stack_b);
+  //pa(&stack_a, &stack_b);
+  //pb(&stack_a, &stack_b);
+  //ra(&stack_a);
+  //rb(&stack_b);
+  //rr(&stack_a, &stack_b);
+  //rra(&stack_a);
+  //rrb(&stack_b);
+  rrr(&stack_a, &stack_b);
+
+  printf("Stack A:\n");
+  stack_print(stack_a);
+
+  printf("\n\nStack B:\n");
+  stack_print(stack_b);
+
+  destroy(&stack_a);
+  destroy(&stack_b);
+}
+*/
+
+/*MIMIMIMIMIMIMIMIMIMIMIMIMIMIMIMI*/
