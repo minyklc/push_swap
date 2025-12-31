@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 09:00:16 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/27 00:36:12 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/31 01:06:26 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	find_max(t_stack *stack, int nb)
 	max = -2147483648;
 	while (stack)
 	{
-		if (max < stack->nb && (stack->nb < nb || stack->nb == 2147483647))
+		if (max < stack->nb && (stack->nb < nb))
 			max = stack->nb;
 		stack = stack->next;
 	}
@@ -47,6 +47,11 @@ void	ft_trindex(t_stack **head)
 
 	index = count_args(*head) - 1;
 	nb = 2147483647;
+	if (stack_find(*head, nb))
+	{
+		stack_find(*head, nb)->pos = index;
+		index--;
+	}
 	while (index >= 0)
 	{
 		nb = find_max(*head, nb);
