@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 09:00:16 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/31 01:06:26 by minpple          ###   ########.fr       */
+/*   Updated: 2025/12/31 08:58:52 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	find_max(t_stack *stack, int nb)
 			max = stack->nb;
 		stack = stack->next;
 	}
-	printf("%d\n", max);
 	return (max);
 }
 

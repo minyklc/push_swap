@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 06:01:50 by mde-carv          #+#    #+#             */
-/*   Updated: 2025/12/26 15:43:30 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/06 06:31:22 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,32 +50,7 @@ void	stack_add_front(t_stack **stack, t_stack *new)
 
 t_stack	*stack_find(t_stack *stack, int nb)
 {
-	while (stack->nb != nb)
+	while (stack && stack->nb != nb)
 		stack = stack->next;
 	return (stack);
 }
-
-/*t_stack	*stack_new(int nb)
-{
-	t_stack	*result;
-	t_stack	*n;
-
-	result = malloc(sizeof(t_stack));
-	if (!result)
-		return (NULL);
-	n = result;
-	n->nb = nb;
-	n->next = NULL;
-	return (result);
-}*/
-
-/*
-void stack_print(t_stack *head)
-{
-  while (head != NULL)
-  {
-    printf("Nb: %i\n", head->nb);
-    head = head->next;
-  }
-}
-*/

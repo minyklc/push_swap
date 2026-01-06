@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 05:52:10 by mde-carv          #+#    #+#             */
-/*   Updated: 2025/12/27 00:41:05 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/06 06:36:49 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,46 @@ void	sa(t_stack **head)
 {
 	t_stack	*temp;
 
-	if ((*head)->next == NULL)
+	if ((*head) == NULL)
 		return ;
 	temp = *head;
 	*head = (*head)->next;
 	temp->next = (*head)->next;
 	(*head)->next = temp;
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack **head)
 {
-	sa(head);
+	t_stack	*temp;
+
+	if ((*head) == NULL)
+		return ;
+	temp = *head;
+	*head = (*head)->next;
+	temp->next = (*head)->next;
+	(*head)->next = temp;
+	write(1, "sb\n", 3);
 }
 
 void	pa(t_stack **head_a, t_stack **head_b)
 {
-	t_stack	*new;
 	t_stack	*temp;
 
-	if ((*head_b)->next == NULL)
-		return ;
-	new = stack_new((*head_a)->nb, (*head_a)->pos);
-	stack_add_front(head_b, new);
-	temp = (*head_a)->next;
-	free(*head_a);
+	temp = *head_b;
+	*head_b = temp->next;
+	temp->next = *head_a;
 	*head_a = temp;
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **head_a, t_stack **head_b)
 {
-	pa(head_b, head_a);
+	t_stack	*temp;
+
+	temp = *head_a;
+	*head_a = temp->next;
+	temp->next = *head_b;
+	*head_b = temp;
+	write(1, "pb\n", 3);
 }

@@ -6,44 +6,30 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 18:38:00 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/30 23:56:59 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/06 06:35:17 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_cleaner(t_stack *array_a, char **args)
+void	ft_cleaner(t_stack **array_a, char ***args)
 {
-	int		i;
-	t_stack	*temp;
-
-	i = 0;
-	while (args[i])
-	{
-		free(args[i]);
-		i++;
-	}
-	free(args);
-	while (array_a)
-	{
-		temp = array_a->next;
-		free(array_a);
-		array_a = temp;
-	}
+	free_args(args);
+	destroy(array_a);
 }
 
-void	free_args(char **args)
+void	free_args(char ***args)
 {
 	int	i;
 
 	i = -1;
-	if (!(args[0] && !args[1]))
+	if (!((*args)[0] && !(*args)[1]))
 		write(2, "Error\n", 6);
-	else if (args[0] && check_limits(args[0]) != 0)
+	else if ((*args)[0] && check_limits((*args)[0]) != 0)
 		write(2, "Error\n", 6);
-	while (args[++i])
-		free(args[i]);
-	free(args);
+	while ((*args)[++i])
+		free((*args)[i]);
+	free((*args));
 }
 
 void	destroy(t_stack **head)
@@ -59,4 +45,16 @@ void	destroy(t_stack **head)
 		current = next;
 	}
 	*head = NULL;
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	while (stack)
+	{
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
+	}
 }

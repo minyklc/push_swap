@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:00:12 by minpple           #+#    #+#             */
-/*   Updated: 2025/12/30 23:50:23 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/06 06:31:30 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,12 @@ char	*ft_joinstr(char *s1, char *s2)
 	return (string);
 }
 
-void	print_result_utils(t_stack *array)
+void	stack_print(t_stack *head)
 {
-	while (array)
+	while (head != NULL)
 	{
-		ft_printf("nb : [%d] ", array->nb);
-		ft_printf("(%d)\n", array->pos);
-		array = array->next;
+		printf("Nb: %i Pos: %i\n", head->nb, head->pos);
+		head = head->next;
 	}
 }
 
