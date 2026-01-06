@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 22:58:23 by minpple           #+#    #+#             */
-/*   Updated: 2026/01/06 10:53:34 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/06 10:56:48 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
 		if (is_it_sorted(array) == 0)
 			return (destroy(&array), 0);
 		ft_trindex(&array);
-    ft_algocheck(&array, count_args(array));
+		ft_algocheck(&array, count_args(array));
 	}
 	return (0);
 }

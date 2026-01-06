@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 06:42:15 by minpple           #+#    #+#             */
-/*   Updated: 2026/01/06 10:49:11 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/06 10:57:22 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_two(t_stack **head)
 
 void	ft_three(t_stack **head, int nbargs)
 {
-	if ((nbargs - 1)!= (stack_last(*head))->pos)
+	if ((nbargs - 1) != (stack_last(*head))->pos)
 	{
 		if ((nbargs - 1) == (*head)->pos)
 			ra(head);
@@ -33,8 +33,8 @@ void	ft_three(t_stack **head, int nbargs)
 
 void	ft_median(t_stack **head, int nbargs)
 {
-	int	i;
-	int	median;
+	int		i;
+	int		median;
 	t_stack	*stack_b;
 
 	i = 0;
