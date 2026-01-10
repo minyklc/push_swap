@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 00:00:12 by minpple           #+#    #+#             */
-/*   Updated: 2026/01/06 06:31:30 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/08 18:32:08 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,6 @@ char	*ft_joinstr(char *s1, char *s2)
 	string[++j] = ' ';
 	string[++j] = '\0';
 	return (string);
-}
-
-void	stack_print(t_stack *head)
-{
-	while (head != NULL)
-	{
-		printf("Nb: %i Pos: %i\n", head->nb, head->pos);
-		head = head->next;
-	}
 }
 
 int	is_it_sorted(t_stack *array)

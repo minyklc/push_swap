@@ -6,7 +6,7 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 06:42:15 by minpple           #+#    #+#             */
-/*   Updated: 2026/01/06 10:57:22 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/08 18:34:26 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,15 @@ void	ft_median(t_stack **head, int nbargs)
 void	ft_algocheck(t_stack **head, int nbargs)
 {
 	if (nbargs == 2)
+	{
 		ft_two(head);
+		destroy(head);
+	}
 	else if (nbargs == 3)
+	{
 		ft_three(head, nbargs);
+		destroy(head);
+	}
 	else if (nbargs < 7)
 		ft_median(head, nbargs);
 	else

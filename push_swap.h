@@ -6,14 +6,13 @@
 /*   By: minpple <minpple@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 23:12:10 by minpple           #+#    #+#             */
-/*   Updated: 2026/01/06 10:33:10 by minpple          ###   ########.fr       */
+/*   Updated: 2026/01/09 18:12:04 by minpple          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
@@ -52,9 +51,6 @@ void	ft_mediancheck(t_stack **stack_a, t_stack **stack_b, int nbargs);
 void	ft_radix(t_stack **head, int nbargs, int bitmax);
 void	free_stack(t_stack *stack);
 
-// --- fonction temporaire à effacer ---
-void	print_result_utils(t_stack *array);
-
 // --- fonction cleaner ---
 void	free_args(char ***args);
 void	ft_cleaner(t_stack **array_a, char ***args);
@@ -89,7 +85,6 @@ t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_find(t_stack *head, int nb);
 void	stack_add_back(t_stack **stack, t_stack *new);
 void	stack_add_front(t_stack **stack, t_stack *new);
-void	stack_print(t_stack *head);
 
 // --- utils_radix.c ---
 int		check_binary(t_stack *head, int bit);
